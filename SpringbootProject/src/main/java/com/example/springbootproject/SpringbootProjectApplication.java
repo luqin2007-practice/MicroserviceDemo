@@ -10,3 +10,4 @@ public class SpringbootProjectApplication {
         SpringApplication.run(SpringbootProjectApplication.class, args);
     }
 }
+
