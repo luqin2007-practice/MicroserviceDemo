@@ -12,6 +12,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/helloworld-hello-provider" />
+    <file type="web" url="file://$PROJECT_DIR$/shopping-user-api" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -21,7 +22,21 @@
         <option value="$PROJECT_DIR$/helloworld-service-discovery/pom.xml" />
         <option value="$PROJECT_DIR$/helloworld-service-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/helloworld-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-service-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-product-service-resttemplate/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-product-service-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-user-api/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-product-service/shopping-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-gateway/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/shopping-product-service-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-product-service/shopping-gateway/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK">
