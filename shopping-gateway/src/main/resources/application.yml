@@ -20,7 +20,7 @@ spring:
           lower-case-service-id: true
       routes:
         - id: user-service-route
-          uri: lb://shopping-user-service
+          uri: lb://userservice
           predicates:
             - Path=/api/users/**
           filters:

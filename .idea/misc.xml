@@ -30,10 +30,12 @@
         <option value="$PROJECT_DIR$/shopping-user-api/pom.xml" />
         <option value="$PROJECT_DIR$/shopping-product-service/shopping-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/shopping-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-config-server/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/shopping-github-server/pom.xml" />
         <option value="$PROJECT_DIR$/shopping-product-service-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/shopping-product-service/shopping-gateway/pom.xml" />
       </set>
