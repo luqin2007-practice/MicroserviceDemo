@@ -1,6 +1,6 @@
 package com.example.shopping.service;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import com.example.shopping.entity.User;
 import com.example.shopping.exception.UserNotFoundException;
 import com.example.shopping.repository.UserRepository;

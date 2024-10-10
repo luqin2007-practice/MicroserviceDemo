@@ -1,8 +1,8 @@
 package com.example.shopping.api;
 
-import com.example.shopping.dto.ProductCommentDto;
-import com.example.shopping.dto.ProductDto;
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.ProductCommentDto;
+import com.example.shopping.model.ProductDto;
+import com.example.shopping.model.UserDto;
 import com.example.shopping.entity.Product;
 import com.example.shopping.service.ProductService;
 import com.example.shopping.service.UserService;

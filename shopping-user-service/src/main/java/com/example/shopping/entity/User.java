@@ -1,6 +1,6 @@
 package com.example.shopping.entity;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

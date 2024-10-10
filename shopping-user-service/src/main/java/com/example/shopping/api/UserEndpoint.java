@@ -1,6 +1,6 @@
 package com.example.shopping.api;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import com.example.shopping.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

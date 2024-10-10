@@ -1,6 +1,6 @@
 package com.example.shopping.api;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;

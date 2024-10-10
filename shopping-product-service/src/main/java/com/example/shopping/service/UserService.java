@@ -1,8 +1,10 @@
 package com.example.shopping.service;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
+import com.example.shopping.model.UserMq;
 import com.example.shopping.repository.UserRedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,13 @@ import java.util.List;
 public class UserService implements com.example.shopping.api.UserService {
 
     /**
-     * 用户微服务客户端
+     * 消息传递通道
+     */
+    @Autowired
+    StreamBridge streamBridge;
+
+    /**
+     * 用户服务降级
      */
     @Autowired
     private UserRemoteClient userRemoteClient;
@@ -41,17 +49,15 @@ public class UserService implements com.example.shopping.api.UserService {
 
     @Override
     public UserDto update(Long id, UserDto userDto) {
-        UserDto update = userRemoteClient.update(id, userDto);
-        userRedisRepository.saveUser(update);
-        return update;
+        streamBridge.send("user", UserMq.updateUser(userDto));
+        userRedisRepository.deleteUser(id);
+        return userDto;
     }
 
     @Override
     public boolean delete(Long id) {
-        boolean deleted = userRemoteClient.delete(id);
-        if (deleted) {
-            userRedisRepository.deleteUser(id);
-        }
-        return deleted;
+        streamBridge.send("user", UserMq.deleteUser(id));
+        userRedisRepository.deleteUser(id);
+        return true;
     }
 }

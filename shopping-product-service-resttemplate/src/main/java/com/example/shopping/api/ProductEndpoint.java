@@ -1,7 +1,7 @@
 package com.example.shopping.api;
 
-import com.example.shopping.dto.ProductCommentDto;
-import com.example.shopping.dto.ProductDto;
+import com.example.shopping.model.ProductCommentDto;
+import com.example.shopping.model.ProductDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

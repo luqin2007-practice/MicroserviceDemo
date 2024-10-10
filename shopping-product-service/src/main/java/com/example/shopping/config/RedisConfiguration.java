@@ -1,6 +1,6 @@
 package com.example.shopping.config;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

@@ -1,6 +1,6 @@
 package com.example.shopping.repository;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;

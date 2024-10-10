@@ -1,6 +1,6 @@
 package com.example.shopping.service;
 
-import com.example.shopping.dto.UserDto;
+import com.example.shopping.model.UserDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.data.domain.Pageable;
