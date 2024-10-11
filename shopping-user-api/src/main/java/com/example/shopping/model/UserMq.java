@@ -12,48 +12,81 @@ public final class UserMq implements Serializable {
     @Serial
     private static final long serialVersionUID = 0L;
 
-    private final String type;
-    private final UserDto user;
+    private String type;
+    private Long id;
+    private String name;
+    private String avatar;
 
-    public UserMq(String type, UserDto user) {
+    public UserMq(String type, Long id, String name, String avatar) {
         this.type = type;
-        this.user = user;
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
     }
 
-    public static UserMq updateUser(UserDto user) {
-        return new UserMq(USER_UPDATED, user);
+    public UserMq() {
+    }
+
+    public static UserMq updateUser(Long id, String name, String avatar) {
+        return new UserMq(USER_UPDATED, id, name, avatar);
     }
 
     public static UserMq deleteUser(Long id) {
-        return new UserMq(USER_DELETED, new UserDto(id, "", "", 0));
+        return new UserMq(USER_DELETED, id, "", "");
     }
 
-    public String type() {
+    public String getType() {
         return type;
     }
 
-    public UserDto user() {
-        return user;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (UserMq) obj;
-        return Objects.equals(this.type, that.type) &&
-                Objects.equals(this.user, that.user);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserMq userMq = (UserMq) o;
+        return Objects.equals(type, userMq.type) && Objects.equals(id, userMq.id) && Objects.equals(name, userMq.name) && Objects.equals(avatar, userMq.avatar);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, user);
+        return Objects.hash(type, id, name, avatar);
     }
 
     @Override
     public String toString() {
-        return "UserMq[" +
-                "type=" + type + ", " +
-                "user=" + user + ']';
+        return "UserMq{" +
+                "type='" + type + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
     }
 }

@@ -3,6 +3,8 @@ package com.example.shopping.service;
 import com.example.shopping.model.UserDto;
 import com.example.shopping.model.UserMq;
 import com.example.shopping.repository.UserRedisRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +19,10 @@ public class UserService implements com.example.shopping.api.UserService {
      * 消息传递通道
      */
     @Autowired
-    StreamBridge streamBridge;
+    private StreamBridge streamBridge;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
      * 用户服务降级
@@ -48,15 +53,17 @@ public class UserService implements com.example.shopping.api.UserService {
     }
 
     @Override
-    public UserDto update(Long id, UserDto userDto) {
-        streamBridge.send("user", UserMq.updateUser(userDto));
+    public UserDto update(Long id, UserDto userDto) throws JsonProcessingException {
+        UserMq data = UserMq.updateUser(userDto.id(), userDto.nickname(), userDto.avatar());
+        streamBridge.send("user", objectMapper.writeValueAsString(data));
         userRedisRepository.deleteUser(id);
         return userDto;
     }
 
     @Override
-    public boolean delete(Long id) {
-        streamBridge.send("user", UserMq.deleteUser(id));
+    public boolean delete(Long id) throws JsonProcessingException {
+        UserMq data = UserMq.deleteUser(id);
+        streamBridge.send("user", objectMapper.writeValueAsString(data));
         userRedisRepository.deleteUser(id);
         return true;
     }

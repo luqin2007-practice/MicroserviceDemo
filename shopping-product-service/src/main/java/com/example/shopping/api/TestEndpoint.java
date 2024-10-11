@@ -1,11 +1,10 @@
 package com.example.shopping.api;
 
 import com.example.shopping.model.UserDto;
-import com.example.shopping.model.UserMq;
 import com.example.shopping.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,15 +18,12 @@ public class TestEndpoint {
     private String baseUrl;
 
     @Autowired
-    private StreamBridge bridge;
-
-    @Autowired
     private UserService userService;
 
     @GetMapping("/update/{id}/{name}")
-    public String updateUser(@PathVariable Long id, @PathVariable String name) {
+    public String updateUser(@PathVariable Long id, @PathVariable String name) throws JsonProcessingException {
         UserDto user = userService.detail(id);
-        bridge.send("user-topic", UserMq.updateUser(new UserDto(user.id(), name, user.avatar(), user.port())));
+        userService.update(id, new UserDto(id, name, user.avatar(), 0));
         return "redirect:" + baseUrl + "/userservice/users/" + id;
     }
 }

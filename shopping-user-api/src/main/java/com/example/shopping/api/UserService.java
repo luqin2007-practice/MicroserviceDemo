@@ -1,6 +1,7 @@
 package com.example.shopping.api;
 
 import com.example.shopping.model.UserDto;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -33,12 +34,12 @@ public interface UserService {
             @ApiImplicitParam(name = "userDto", value = "用户详情数据", dataType = "UserDto", paramType = "body"),
     })
     @PostMapping("/users/{id}")
-    UserDto update(@PathVariable Long id, @RequestBody UserDto userDto);
+    UserDto update(@PathVariable Long id, @RequestBody UserDto userDto) throws JsonProcessingException;
 
     @ApiOperation(value = "删除指定用户", notes = "删除指定用户", httpMethod = "DELETE", tags = "用户管理相关Api")
     @ApiImplicitParams(
             @ApiImplicitParam(name = "id", value = "所要删除用户的主键", dataType = "int", paramType = "path")
     )
     @DeleteMapping("/users/{id}")
-    boolean delete(@PathVariable Long id);
+    boolean delete(@PathVariable Long id) throws JsonProcessingException;
 }
