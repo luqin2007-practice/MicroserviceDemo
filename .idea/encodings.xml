@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/shopping-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shopping-github-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shopping-github-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-oauth-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shopping-product-service-resttemplate/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shopping-product-service-ribbon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shopping-product-service/src/main/java" charset="UTF-8" />

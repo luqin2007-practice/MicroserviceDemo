@@ -33,6 +33,7 @@
         <option value="$PROJECT_DIR$/shopping-config-server/pom.xml" />
         <option value="$PROJECT_DIR$/hello-stream-sender/pom.xml" />
         <option value="$PROJECT_DIR$/hello-stream-receiver/pom.xml" />
+        <option value="$PROJECT_DIR$/shopping-oauth-server/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
