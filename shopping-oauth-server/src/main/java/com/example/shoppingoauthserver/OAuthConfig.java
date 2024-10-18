@@ -24,6 +24,8 @@ public class OAuthConfig {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         // 关闭 csrf
         http.csrf(AbstractHttpConfigurer::disable);
+        // 配置 JWT 模式
+        http.oauth2ResourceServer(configurer -> configurer.jwt(conf -> {}));
         return http.build();
     }
 
